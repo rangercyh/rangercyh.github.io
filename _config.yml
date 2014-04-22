@@ -3,7 +3,7 @@
 # ----------------------- #
 
 url: http://rangercyh.github.io
-title: 菜鸟浮出水的书房
+title: 似是而非
 subtitle: 潜移默化，笔端生花
 author: 蔡毅恒
 simple_search: https://www.google.com/search
@@ -32,6 +32,8 @@ source: source
 destination: public
 plugins: plugins
 code_dir: downloads/code
+tag_dir: tags
+tag_titile_prefix: 标签
 category_dir: blog/categories
 markdown: rdiscount
 rdiscount:
@@ -51,13 +53,13 @@ titlecase: true       # Converts page and post titles to titlecase
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: [asides/recent_posts.html, asides/category_list.html, asides/weibo.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+#default_asides: [asides/recent_posts.html, asides/category_list.html, asides/weibo.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
-# blog_index_asides:
-# post_asides:
-# page_asides:
+blog_index_asides: [asides/recent_posts.html, asides/recent_comments.html, asides/category_sidebar.html, asides/weibo.html, asides/gittip.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+post_asides: [asides/recent_posts.html, asides/category_sidebar.html]
+page_asides: [asides/recent_posts.html, asides/category_sidebar.html]
 
 # ----------------------- #
 #   3rd Party Settings    #
@@ -109,5 +111,11 @@ weibo_pic: true     # 是否显示微博中的图片
 weibo_skin: 2      # 使用哪种配色风格，数字为从1开始的微博秀风格序号
 
 # Jiathis
-jiathis: true
+jiathis: false
+
+# BaiduShare
+baidushare: true
+
+# Gittip
+gittip: true
 
