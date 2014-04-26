@@ -57,9 +57,9 @@ titlecase: true       # Converts page and post titles to titlecase
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
-blog_index_asides: [asides/recent_posts.html, asides/recent_comments.html, asides/category_sidebar.html, asides/weibo.html, asides/gittip.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
-post_asides: [asides/recent_posts.html, asides/category_sidebar.html]
-page_asides: [asides/recent_posts.html, asides/category_sidebar.html]
+blog_index_asides: [asides/recent_posts.html, asides/recent_comments.html, asides/category_sidebar.html, asides/weibo.html, custom/asides/blog_link.html, asides/gittip.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+post_asides: [asides/recent_posts.html, asides/category_sidebar.html, custom/asides/blog_link.html]
+page_asides: [asides/recent_posts.html, asides/category_sidebar.html, custom/asides/blog_link.html]
 
 # ----------------------- #
 #   3rd Party Settings    #
