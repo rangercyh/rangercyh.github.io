@@ -1,0 +1,67 @@
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+
+paginate: 20 # pagination based on number of posts
+paginate_path: "page:num"
+
+include:
+    [extra]
+
+exclude:
+  - "*/*~"
+  - "*/.#*"
+  - README.md
+  - src
+
+highlighter: rouge
+markdown:    kramdown
+disqus:      mbrjnt
+comments:    true
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: 菜鸟浮出水
+      comments:    true
+      hide:        false
+      plotly:      false
+      noTeX:       false
+
+description:  blog-a-like
+
+author:
+  name:      菜鸟浮出水
+  email:     rangercyh@qq.com
+  github:    rangercyh
+  bio:       pardon?
+
+lsi:	     false
+safe:	     true
+incremental: false
+gist:
+  noscript:	false
+
+sass:
+  style: compressed
+
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+gems:
+  - jekyll-mentions
+  - jekyll-paginate
+  - jekyll-feed
+
+google_analytics: UA-50206372-1
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+copyright_path: copyright.html
+
+BASE_PATH:
+
+permalink: /:categories/:year/:month/:title:output_ext
