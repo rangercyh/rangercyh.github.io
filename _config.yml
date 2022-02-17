@@ -64,4 +64,4 @@ copyright_path: copyright.html
 
 BASE_PATH:
 
-permalink: /:categories/:year/:month/:title:output_ext
+permalink: /:year/:month/:title:output_ext
