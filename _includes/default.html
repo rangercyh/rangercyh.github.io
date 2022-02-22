@@ -170,26 +170,5 @@ window.MathJax = {
 {% endif %}
 {% endif %}
 
-{%if false %}  
-  <script>
-  <!-- shoot...this doesn't work -->
-  $(function () {
-    var hash = document.location.hash;
-    var prefix = "tab_";
-    //console.log(document.location);
-    
-    if (hash) {
-    console.log("hash = " + hash.replace(prefix,"")+']');
-      $('.nav-tabs a[href='+hash.replace(prefix,"")+']').tab('show.bs.tab');
-    } 
-
-    // Change hash for page-reload
-    $('.nav-tabs a').on('shown.bs.tab', function (e) {
-      window.location.hash = e.target.hash.replace("#", "#" + prefix);
-      });
-  });
-  </script>
-{% endif %}
-
 </body>
 </html>
