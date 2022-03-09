@@ -1,7 +1,6 @@
 ---
 layout: post
 title: js中bind、call、apply函数的用法
-tagline:
 categories: [programmer]
 tags: [js,call]
 description: 关于 js 里 bind call apply 的调用方式分析，以及对 js 里对象调用的分析， this 指针的使用技巧
