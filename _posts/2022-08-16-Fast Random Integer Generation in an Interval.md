@@ -14,7 +14,9 @@ permalink: /:year/:month/fast_random:output_ext
 
 写的内容主要分析了一下大名鼎鼎的随机打乱算法 [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) 在具体使用代码实现当中的性能开销。
 
+<div align="center">
 <img src="/../assets/posts/Durstenfeld_shuffle.svg.png" style="zoom:50%;" align="middle" />
+</div>
 
 比如一段典型的实现代码如下：
 
@@ -75,6 +77,7 @@ func (r *Rand) Int31n(n int32) int32 {
 
 我们真随机得到 $[0, 2^{3})$ 这 8 个数字，现在想获得 $[0,3)$ 上的等概率随机。我们可以看到取模之后的结果如下：
 
+<div align="center">
 <table>
 	<tr>
 		<td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
@@ -86,6 +89,8 @@ func (r *Rand) Int31n(n int32) int32 {
 		<td>0</td><td>1</td><td>2</td><td>0</td><td>1</td><td>2</td><td>0</td><td>1</td>
 	</tr>
 </table>
+</div>
+
 
 
 我们希望得到 0, 1, 2 的概率各是 1/3 ， 实际上我们得到 0, 1, 2 的概率分别是 3/8, 3/8, 2/8。
@@ -154,7 +159,9 @@ uint32_t reduce(uint32_t x, uint32_t N) {
 
 依然拿上面的例子来看，比如我们能够生成 $[0,2^3)$ 区间内的随机数，现在要求生成 $[0,3)$ 的随机数。我们用 $2^3 * 3$ 得到一个最长的数轴，接着我们按照 $2^3$ 对数轴进行切割，然后计算每个切割区间内的 3 的倍数的个数。
 
-![](/../assets/posts/QQ%E6%88%AA%E5%9B%BE20220816190858.png){: .center-image }
+<div align="center">
+<img src="/../assets/posts/QQ%E6%88%AA%E5%9B%BE20220816190858.png" style="zoom:80%;" />
+</div>
 
 可以看出，对于每一个长度为 $2^3 = 8$ 的区间，如果第一个完整的长度为 3 的区间在 $2^3 mod 3 = 2$ 之前，比如区间 1 跟区间 2，那么这个区间就会有 $ceil(2^3 / 3) = 3$ 个 3 的倍数，否则比如区间 3 就只有 $floor(2^3 / 3) = 2$ 个 3 的倍数。
 
@@ -249,6 +256,7 @@ uint32_t random_bounded(uint32_t range) {
 
 作者最后也测试了一下几种不同语言的范围随机函数跟这两个版本的性能比较，结果如下：
 
+<div align="center">
 <table>
 	<tr>
 		<td colspan="2" align="center">Random shuffle timings, varying the range function</td>
@@ -272,6 +280,7 @@ uint32_t random_bounded(uint32_t range) {
 		<td align="center">no division (with slight bias)</td><td align="center">6</td>
 	</tr>
 </table>
+</div>
 
 可以看到改造除法运算后，运行速度几乎是普通代码的 2 倍以上，效果还是相当明显的。
 
