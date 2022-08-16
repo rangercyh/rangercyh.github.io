@@ -234,7 +234,7 @@ int UnbiasedRandom()
 最终解
 -----
 
-回到我们的问题。运用上面的拒绝采样技术之后，我们终于可以得到一个在 $[0,N)$ 下的等概率随机器了。只不过我们的调用次数期望可能在 $floor(2^32/range)$ 和 $ceil(2^32/range)$ 之间。代码如下：
+回到我们的问题。运用上面的拒绝采样技术之后，我们终于可以得到一个在 $[0,N)$ 下的等概率随机器了。只不过我们的调用次数期望可能在 $floor(2^{32}/range)$ 和 $ceil(2^{32}/range)$ 之间。代码如下：
 ```c
 uint32_t random_bounded(uint32_t range) {
     uint64_t random32bit =  random32(); //32-bit random number 
