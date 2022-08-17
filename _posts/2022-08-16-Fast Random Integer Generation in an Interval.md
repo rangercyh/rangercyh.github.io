@@ -108,7 +108,8 @@ func (r *Rand) Int31n(n int32) int32 {
 
 # 问题一
 
-\\
+<br>
+
 取模：
 ------
 
