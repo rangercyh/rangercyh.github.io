@@ -2,6 +2,9 @@
 <html><head>
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
+  {% if jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
   {% if page.description %}
     <meta name="description" content="{{ page.description }}">
   {% endif %}
@@ -107,12 +110,7 @@ window.MathJax = {
   
 {% endif %}
 {% endif %}    
-  
 
-  {% if jekyll.environment == 'production' %}
-  {% include analytics.html %}
-  {% endif %}
-  
 </head>
 
 <body>
