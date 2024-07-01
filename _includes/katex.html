@@ -1,0 +1,87 @@
+<!-- prettier-ignore -->
+{% if page.noTeX != true %}
+{% if page.katex %}
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css"
+    integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx"
+    crossorigin="anonymous"
+/>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js"
+    integrity="sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ"
+    crossorigin="anonymous"
+></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/contrib/auto-render.min.js"
+    integrity="sha384-cXpztMJlr2xFXyDSIfRWYSMVCXZ9HeGXvzyKTYrn03rsMAlOtIQVzjty5ULbaP8L"
+    crossorigin="anonymous"
+></script>
+<script>
+    renderMathInElement(document.getElementById("post"), {
+        delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+        ],
+    })
+</script>
+{% endif %}
+<!-- prettier-ignore -->
+{% else %}
+<script type="text/javascript">
+    window.MathJax = {
+        options: {
+            menuOptions: {
+                settings: {
+                    zoom: "None",
+                    zscale: "150%",
+                },
+            },
+
+            renderActions: {
+                findScript: [
+                    10,
+                    function (doc) {
+                        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                            const display = !!node.type.match(/; *mode=display/)
+                            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                            const text = document.createTextNode("")
+                            node.parentNode.replaceChild(text, node)
+                            math.start = { node: text, delim: "", n: 0 }
+                            math.end = { node: text, delim: "", n: 0 }
+                            doc.math.push(math)
+                        }
+                    },
+                    "",
+                ],
+            },
+
+            ignoreHtmlClass: "tex2jax_ignore",
+            processHtmlClass: "tex2jax_process",
+        },
+        tex: {
+            inlineMath: [["$", "$"]],
+            processEnvironments: false,
+            tags: "ams",
+            macros: {
+                abs: ["\\left\\lvert #2 \\right\\rvert_{\\text{#1}}", 2, ""],
+                abracket: ["{\\langle #1 \\rangle}", 1],
+                pbracket: ["{\\bigl #1 \\bigr}", 1],
+                bvec: ["{\\lgroup #1 \\rgroup}", 1],
+                func: ["{#1 \\left( #2 \\right)}", 2],
+            },
+            autoload: {
+                color: [],
+                colorV2: ["color"],
+            },
+            packages: { "[+]": ["noerrors"], "[+]": ["color"] },
+        },
+        loader: {
+            load: ["[tex]/noerrors", "[tex]/color"],
+        },
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+{% endif %}

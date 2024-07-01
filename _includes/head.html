@@ -1,0 +1,47 @@
+<head>
+    <meta charset="utf-8" />
+    <title>{{ page.title }}</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml" />
+    <!-- prettier-ignore -->
+    {% include stylesheets.html %}
+    {% if jekyll.environment == 'production' %}
+        {% include analytics.html %}
+    {% endif %}
+
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    {% endif %}
+    <meta name="author" content="{{ site.author.name }}" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:title" content="{{ page.title }}" />
+
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+    />
+    <link href="{{ site.baseurl }}/assets/css/style.css" rel="stylesheet" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+        id="hljs-theme"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/ico/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/ico/favicon-16x16.png" sizes="16x16" />
+
+    <!-- prettier-ignore -->
+    {% if page.plotly %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    {% endif %}
+    <!-- prettier-ignore -->
+    {% if page.threejs %}
+    <script src="{{ site.baseurl }}/assets/js/three.js"></script>
+    {% endif %}
+    <!-- prettier-ignore -->
+    {% include katex.html %}
+</head>
