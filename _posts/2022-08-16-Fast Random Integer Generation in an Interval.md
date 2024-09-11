@@ -17,7 +17,6 @@ permalink: /:year/:month/fast_random:output_ext
 <div align="center">
 <img src="/../assets/posts/Durstenfeld_shuffle.svg.png" style="zoom:50%;" align="middle" />
 </div>
-
 \\
 比如一段典型的实现代码如下：
 
